@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="maruBatuGame" content="まるバツゲーム">
+    <title>〇✕ゲーム</title>
+    <style type="text/css">
+    .container {
+        display: inline-block;
+    }
+
+    .grid {
+        margin-top: 10px;
+        margin-left: 10px;
+        border: double 10px blue;
+    }
+
+    .grid {
+        display: flex;
+    }
+
+    .col div {
+        width: 100px;
+        height: 100px;
+        border: solid 5px black;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div id="topDisplay"></div>
+    <div class="container">
+        <div class="grid">
+            <div class="col">
+                <div id="row0col0"></div>
+                <div id="row1col0"></div>
+                <div id="row2col0"></div>
+            </div>
+            <div class="col">
+                <div id="row0col1"></div>
+                <div id="row1col1"></div>
+                <div id="row2col1"></div>
+            </div>
+            <div class="col">
+                <div id="row0col2"></div>
+                <div id="row1col2"></div>
+                <div id="row2col2"></div>
+            </div>
+        </div>
+    </div>
+    <div id="bottomDisplay"></div>
+    
+
+    <script src="main.js"></script>
+
+</body>
+</html>
