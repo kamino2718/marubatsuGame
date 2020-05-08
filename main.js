@@ -36,10 +36,7 @@ function judgement(array) {　
 
     //縦揃い
     for(let i=0;i<3;i++) {
-        if(array[0][i] == 0 && array[1][i] == 0 && array[2][i] == 0) {
-            judgementInformation.judgementType = 0;
-            return judgementInformation;
-        } else if(array[0][i] == 1 && array[1][i] == 1 && array[2][i] == 1) {
+        if(array[0][i] == 1 && array[1][i] == 1 && array[2][i] == 1) {
             judgementInformation.judgementType = 1;
             judgementInformation.Grids = [[0,i],[1,i],[2,i]];
             return judgementInformation;
@@ -52,11 +49,7 @@ function judgement(array) {　
 
     //横揃い
     for(let i=0;i<3;i++) {
-        if(array[i][0] == 0 && array[i][1] == 0 && array[i][2] == 0) {
-            judgementInformation.judgementType = 0;
-            judgementInformation.Grids = [[i,0],[i,1],[i,2]];
-            return judgementInformation;
-        } else if(array[i][0] == 1 && array[i][1] == 1 && array[i][2] == 1) {
+        if(array[i][0] == 1 && array[i][1] == 1 && array[i][2] == 1) {
             judgementInformation.judgementType = 1;
             judgementInformation.Grids = [[i,0],[i,1],[i,2]];
             return judgementInformation;
@@ -68,10 +61,7 @@ function judgement(array) {　
     }
 
     //斜め揃い
-    if(array[0][0] == 0 && array[1][1] == 0 && array[2][2] == 0) {
-        judgementInformation.judgementType = 0;
-        return judgementInformation;
-    } else if (array[0][0] == 1 && array[1][1] == 1 && array[2][2] == 1) {
+    if (array[0][0] == 1 && array[1][1] == 1 && array[2][2] == 1) {
         judgementInformation.judgementType = 1;
         judgementInformation.Grids = [[0,0],[1,1],[2,2]];
         return judgementInformation;
@@ -81,10 +71,7 @@ function judgement(array) {　
         return judgementInformation;
     }
 
-    if(array[2][0] == 0 && array[1][1] == 0 && array[0][2] == 0) {
-        judgementInformation.judgementType = 0;
-        return judgementInformation;
-    } else if(array[2][0] == 1 && array[1][1] == 1 && array[0][2] == 1) {
+    if(array[2][0] == 1 && array[1][1] == 1 && array[0][2] == 1) {
         judgementInformation.judgementType = 1;
         judgementInformation.Grids = [[2,0],[1,1],[0,2]];
         return judgementInformation;
@@ -94,6 +81,7 @@ function judgement(array) {　
         return judgementInformation;
     }
 
+    //揃っていなかった場合
     judgementInformation.judgementType = 0;
     return judgementInformation;
 }
