@@ -91,12 +91,11 @@ function judgement(array) {　
 
 /***********main***********/
 //console.log
-
 printAttacker(firstOrSecond);
 
 for(let i=0;i<3;i++) {
     for(let j=0;j<3;j++) {
-        document.getElementById(`row${i}col${j}`).addEventListener("click", () => {
+        document.getElementById(`row${i}col${j}`).addEventListener("click", (event) => {
 
             console.log(`turnCount:${turnCount},firstOrSecond:${firstOrSecond}`); //現在の状態をコンソール表示
     
@@ -104,8 +103,10 @@ for(let i=0;i<3;i++) {
             
             if(firstOrSecond == 1) {
                 document.getElementById(`row${i}col${j}`).innerHTML = "〇";
+                document.getElementById(`row${i}col${j}`).style.pointerEvents = "none";
             } else if(firstOrSecond == 2) {
                 document.getElementById(`row${i}col${j}`).innerHTML = "✕";
+                document.getElementById(`row${i}col${j}`).style.pointerEvents = "none";
             }
 
             judgementResult = judgement(array);
@@ -134,9 +135,10 @@ for(let i=0;i<3;i++) {
                 for(let i=0;i<3;i++) {
                     document.getElementById(`row${judgementResult.Grids[i][0]}col${judgementResult.Grids[i][1]}`).style.backgroundColor = "red";
                 }
-                //ここでクリックできないようにした
+                //ここでクリックできないようにしたい
                 console.log("originally prevent click");
-                // document.getElementById("grid").style.pointerEvents = "none";
+                document.getElementById("grid").style.pointerEvents = "none";
+
             } else if(judgementResult.judgementType == 2) {
                 console.log(judgementResult);
                 bottomDisplay.innerHTML = "後攻:✕の勝ち";
@@ -147,7 +149,8 @@ for(let i=0;i<3;i++) {
 
                 //ここでクリックできないようにしたい
                 console.log("originally prevent click");
-                // document.getElementById("grid").style.pointerEvents = "none";
+                document.getElementById("grid").style.pointerEvents = "none";
+
             } else {
                 console.log(judgementResult);
                 console.log("error: judgementResult.judgementType is not 0, 1 or 2");
